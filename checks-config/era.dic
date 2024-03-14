@@ -423,6 +423,7 @@ SetChainId
 setChainId
 SetChainIdUpgrade
 state_transition_manager_contract
+prunable
 
 // Names
 Vyper
@@ -918,6 +919,5 @@ stateful
 WIP
 oneshot
 p2p
-prunable
 StorageProcessor
 StorageMarker
