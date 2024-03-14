@@ -918,5 +918,6 @@ stateful
 WIP
 oneshot
 p2p
+prunable
 StorageProcessor
 StorageMarker
