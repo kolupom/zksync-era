@@ -242,10 +242,12 @@ pub struct OptionalENConfig {
     // This is intentionally not a part of `RemoteENConfig` because fetching this info from the main node would defeat
     // its purpose; the consistency checker assumes that the main node may provide false information.
     pub contracts_diamond_proxy_addr: Option<Address>,
-    //
-    // pub pruning_chunk_size: u64,
-    //
-    // pub min_block_age_to_prune_hours: u64,
+
+    #[serde(default = "OptionalENConfig::default_pruning_chunk_size")]
+    pub pruning_chunk_size: u32,
+
+    /// If set, l1 batches will be pruned after they are that long
+    pub l1_batch_age_to_prune_hours: Option<u64>,
 }
 
 impl OptionalENConfig {
@@ -349,6 +351,10 @@ impl OptionalENConfig {
     }
 
     const fn default_miniblock_seal_queue_capacity() -> usize {
+        10
+    }
+
+    const fn default_pruning_chunk_size() -> u32 {
         10
     }
 
