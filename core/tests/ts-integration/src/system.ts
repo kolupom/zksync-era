@@ -1,8 +1,8 @@
 import { BigNumber, BytesLike, ethers } from 'ethers';
 import { Provider, utils } from 'zksync-ethers';
 
-const L1_CONTRACTS_FOLDER_2 = `${process.env.ZKSYNC_HOME}/contracts/l1-contracts/artifacts-forge`;
 const L1_CONTRACTS_FOLDER = `${process.env.ZKSYNC_HOME}/contracts/l1-contracts/artifacts/cache/solpp-generated-contracts`;
+const L1_CONTRACTS_FOLDER_2 = `${process.env.ZKSYNC_HOME}/contracts/l1-contracts/artifacts-forge`;
 const DIAMOND_UPGRADE_INIT_ABI = new ethers.utils.Interface(
     require(`${L1_CONTRACTS_FOLDER_2}/zksync/upgrade-initializers/DiamondUpgradeInit1.sol/DiamondUpgradeInit1.json`).abi
 );
