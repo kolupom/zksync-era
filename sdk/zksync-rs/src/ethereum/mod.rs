@@ -448,7 +448,7 @@ impl<S: EthereumSigner> EthereumProvider<S> {
 
         let is_eth_deposit = l1_token_address == Address::zero();
 
-        // Calculate the gas limit for transaction: it may vary for different tokens.
+        // Calculate the gas limit for the transaction: it may vary for different tokens.
         let gas_limit = if is_eth_deposit {
             200_000u64
         } else {
@@ -499,12 +499,12 @@ impl<S: EthereumSigner> EthereumProvider<S> {
             .await
             .map_err(|e| ClientError::NetworkError(e.to_string()))?;
 
-        // Calculate the amount of ether to be sent in the transaction.
+        // Calculate the amount of Ether to be sent in the transaction.
         let total_value = if is_eth_deposit {
-            // Both fee component and the deposit amount are represented as `msg.value`.
+            // Both fee component, and the deposit amount are represented as `msg.value`.
             base_cost + operator_tip + amount
         } else {
-            // ERC20 token, `msg.value` is used only for the fee.
+            // For ERC20 tokens, msg.value is used only for the fee.
             base_cost + operator_tip
         };
 
@@ -556,7 +556,7 @@ impl<S: EthereumSigner> EthereumProvider<S> {
     }
 
     /// Sets the timeout to wait for transactions to appear in the Ethereum network.
-    /// By default it is set to 10 seconds.
+    /// By default, it is set to 10 seconds.
     pub fn set_confirmation_timeout(&mut self, timeout: Duration) {
         self.confirmation_timeout = timeout;
     }
